@@ -1,0 +1,25 @@
+<h1 class="display-4">Food</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Serial No</th>
+            <th>Food Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% orders.forEach(function(order){ %>
+            <tr>
+                <td><%= order.doc._id %></td>
+                <td><%= order.doc.name %></td>
+                <td><%= order.doc.price %></td>  
+                <td>
+                    <a href="/meals/edit?id=<%= order.doc._id %>" class="btn btn-primary">Edit</a>
+                    <form action="/meals/delete?id=<%= order.doc._id %>" method="post" class="d-inline">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </td>          
+            </tr>
+        <% }); %>
+    </tbody>
+</table>

@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <script>
+      function check(){
+          var u = document.getElementById("user").value;
+          var p = document.getElementById("pass").value;
+          if(u=="admin" && p=="zyx123"){
+            window.location.replace("header");
+          }else{
+             
+              alert("login failed")
+          }
+      }
+    </script>
+</head>
+
+<body>
+        <form class="container">
+                <div>
+                    <label>Admin</label>
+                </div>
+                <div class="form-group">
+                 <label for="exampleInputEmail">username</label>
+                 <input type="text" class="form-control" name="email" id="user">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword">Password</label>
+                    <input type="password" class="form-control" name="Password" id="pass">
+                   </div><br>
+                   <button type="submit" class="btn btn-primary" onclick="check()">Login</button>
+            </form>
+</body>
+
+</html>
