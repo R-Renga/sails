@@ -10,7 +10,7 @@
         </tr>
     </thead>
     <tbody>
-        <% orders.forEach(function(order){ %>
+        <% orders.forEach((order)=>{ %>
             <tr>
                 <td><%= order.doc._id %></td>
                 <td><%= order.doc.name %></td>
@@ -18,7 +18,7 @@
                 <td><%= order.doc.total %></td>  
                 <td><%= order.doc.status %></td>  
                 <td>
-                    <a href="/order/orderedit?id=<%= order.doc._id %>" class="btn btn-primary">edit</a>
+                    <a href="/order/orderedit?id=<%= order.doc._id %>" class="btn btn-primary">Accept</a>
                     <form action="/order/orderdelete?id=<%= order.doc._id %>" method="post" class="d-inline">
                         <input type="submit" value="delete" class="btn btn-danger">
                     </form>
