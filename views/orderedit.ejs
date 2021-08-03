@@ -1,4 +1,4 @@
-<ol class="breadcrumb">
+<!-- <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/order/orderlist">orders</a></li>
     <li class="breadcrumb-item active">Edit</li>
 </ol>
@@ -6,19 +6,26 @@
 <form action="/order/orderupdate?id=<%= order._id %>" method="post">
     <div class="form-group">
         <label for="status">status</label>
-        <input type="text" name="status" id="status" class="form-control" value="<%= order.status %>">
-    </div>
-    <div class="form-group">
-        <label for="name">name</label>
-        <input type="text" name="name" id="name" class="form-control" value="<%= order.name %>">
-    </div>
-    <div class="form-group">
-        <label for="qty">qty</label>
-        <input type="text" name="qty" id="qty" class="form-control" value="<%= order.qty %>">
+        <input type="text" name="status" id="status" class="form-control" value="<%= order.status %>"  onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
     </div>
     <div class="form-group">
         <label for="total">total</label>
         <input type="text" name="total" id="total" class="form-control" value="<%= order.total %>">
     </div>
+    <div class="form-group">
+        <label for="total">Date</label>
+        <input type="text" name="total" id="total" class="form-control" value="<%= order.orderedDate %>">
+    </div>
+
     <input type="submit" value="Submit" class="btn btn-primary">
 </form>
+<form action="/order.orderitems/orderupdate?id=<%= order._id %>" method="post"></form>
+<div class="form-group">
+    <label for="name">name</label>
+    <input type="text" name="name" id="name" class="form-control" value="<%= order.orderitems.name %>">
+</div>
+<div class="form-group">
+    <label for="qty">qty</label>
+    <input type="text" name="qty" id="qty" class="form-control" value="<%= order.orderitems.qty %>">
+</div>
+</form> -->

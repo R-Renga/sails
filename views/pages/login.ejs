@@ -5,8 +5,8 @@
       function check(){
           var u = document.getElementById("user").value;
           var p = document.getElementById("pass").value;
-          if(u=="admin" && p=="zyx123"){
-            window.location.replace("header");
+          if(u=="admin" && p=="123"){
+            window.open ( "/homepage")
           }else{
              
               alert("login failed")
@@ -23,11 +23,11 @@
                 </div>
                 <div class="form-group">
                  <label for="exampleInputEmail">username</label>
-                 <input type="text" class="form-control" name="email" id="user">
+                 <input type="text" class="form-control" name="email" id="user" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword">Password</label>
-                    <input type="password" class="form-control" name="Password" id="pass">
+                    <input type="password" class="form-control" name="Password" id="pass" required>
                    </div><br>
                    <button type="submit" class="btn btn-primary" onclick="check()">Login</button>
             </form>

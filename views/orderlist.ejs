@@ -1,3 +1,6 @@
+<div>
+    <%- partial('./pages/header.ejs') %>
+</div>
 <h1 class="display-4">Orders</h1>
 <table class="table table-striped">
     <thead>
@@ -7,23 +10,50 @@
             <th>qty</th>
             <th>Total</th>
             <th>Status</th>
+            <th>OrderedDate</th>
         </tr>
     </thead>
     <tbody>
         <% orders.forEach((order)=>{ %>
             <tr>
-                <td><%= order.doc._id %></td>
-                <td><%= order.doc.name %></td>
-                <td><%= order.doc.qty %></td>  
-                <td><%= order.doc.total %></td>  
-                <td><%= order.doc.status %></td>  
                 <td>
-                    <a href="/order/orderedit?id=<%= order.doc._id %>" class="btn btn-primary">Accept</a>
+                    <%= order.doc._id %>
+                </td>
+
+                <td>
+                    <% order.doc.orderitems.forEach((item)=>{ %>
+                        <ul>
+                            <li>
+                                <%= item.name %> -
+                                    <%= item.qty %>
+                            </li>
+                        </ul>
+
+
+
+                        <% }); %>
+                </td>
+
+
+
+
+                <td>
+                    <%= order.doc.total %>
+                </td>
+                <td>
+                    <%= order.doc.status %>
+                </td>
+                <td>
+                    <%= order.doc.orderedDate %>
+                </td>
+
+                <td>
                     <form action="/order/orderdelete?id=<%= order.doc._id %>" method="post" class="d-inline">
                         <input type="submit" value="delete" class="btn btn-danger">
                     </form>
-                </td>          
+                </td>
+
             </tr>
-        <% }); %>
+            <% }); %>
     </tbody>
 </table>

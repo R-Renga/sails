@@ -17,9 +17,7 @@ module.exports = {
       let config = { headers: { 'Authorization': 'Basic ' + apiKey } };
       let result = await axios.get(url, config);
       let orders = result.data.rows;
-      // const newOrders = Object.values(newItems)
-      // const orders = JSON.stringify(newOrders)
-       console.log(orders)
+      console.log(orders)
 
       res.view('orderlist', { orders: orders });
     } catch (error) {
@@ -35,6 +33,7 @@ module.exports = {
     try {
       let result = await axios.get(url, config);
       let order = result.data;
+
       res.view('orderedit', { order: order });
     } catch (error) {
       console.log(error);
